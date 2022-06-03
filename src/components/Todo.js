@@ -38,7 +38,7 @@ const Todo = ({ arr }) => {
           }
         />
       </ListItem>
-      <DeleteIcon fontSize="large" style={{ opacity: 1, paddingRight: 20, }} onClick={() => { deleteDoc(doc(db, 'todos', arr.id)) }} />
+      {/* <DeleteIcon fontSize="large" style={{ opacity: 1, paddingRight: 20, }} onClick={() => { deleteDoc(doc(db, 'todos', arr.id)) }} /> */}
 
     </List>
   )
