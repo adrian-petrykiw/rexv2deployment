@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/rexv1deployment/static/css/main.852cb186.css",
+    "main.js": "/rexv1deployment/static/js/main.f9660326.js",
+    "index.html": "/rexv1deployment/index.html",
+    "main.852cb186.css.map": "/rexv1deployment/static/css/main.852cb186.css.map",
+    "main.f9660326.js.map": "/rexv1deployment/static/js/main.f9660326.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.852cb186.css",
+    "static/js/main.f9660326.js"
+  ]
+}
