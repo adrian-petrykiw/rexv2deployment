@@ -11,7 +11,7 @@ import GetNFTData from './components/GetNFTData';
 
 const q = query(collection(db, 'todos'), orderBy('timestamp', 'desc'));
 
-const InputOne = styled.input`
+const InputGameName = styled.input`
   min-width: 16rem;
   font-size: 1rem;
   padding: 0.6rem 1.5rem 0.6rem 1.5rem;
@@ -26,7 +26,25 @@ const InputOne = styled.input`
   font-family: Montserrat;
 `;
 
-const InputTwo = styled.input`
+const InputShipMintAddress = styled.input`
+  min-width: 16rem;
+  font-size: 1rem;
+  padding: 0.6rem 1.5rem 0.6rem 1.5rem;
+  margin: 0.5rem 3rem 1.5rem 3rem;
+  background: none;
+  border: 1px solid white;
+  border-radius: none;
+  font-family: Montserrat;
+  color: white;
+  ::placeholder {
+    color: white;
+  }
+  /* &:focus {
+    outline: none;
+  }   */
+`;
+
+const InputInvaderOneMintAddress = styled.input`
   min-width: 16rem;
   font-size: 1rem;
   padding: 0.6rem 1.5rem 0.6rem 1.5rem;
@@ -60,12 +78,15 @@ const ButtonTwo = styled.button`
 function App() {
   const [todos, setTodos] = useState([]);
 
-  const [inputOne, setInputOne] = useState('');
+  const [inputGameName, setInputGameName] = useState('');
 
-  const [inputTwo, setInputTwo] = useState('');
+  const [inputShipMintAddress, setInputShipMintAddress] = useState('');
 
-  const nftPic = GetNFTData(inputTwo);
+  const [inputInvaderOneMintAddress, setInputInvaderOneMintAddress] = useState('');
 
+  const shipnftPic = GetNFTData(inputShipMintAddress);
+
+  const invaderonenftPic = GetNFTData(inputInvaderOneMintAddress);
 
 
   useEffect(() => {
@@ -77,18 +98,21 @@ function App() {
     })
 
 
-  }, [inputOne, inputTwo]);
+  }, [inputGameName, inputShipMintAddress, inputInvaderOneMintAddress]);
 
   const addTodo = (e) => {
     e.preventDefault();
     addDoc(collection(db, 'todos'), {
-      gameName: inputOne,
-      mintAddress: inputTwo,
-      nftPic: nftPic,
+      gameName: inputGameName,
+      shipMintAddress: inputShipMintAddress,
+      invaderMintAddress: inputInvaderOneMintAddress,
+      shipNFTPic: shipnftPic,
+      invaderOneNFTPic: invaderonenftPic,
       timestamp: serverTimestamp()
     })
-    setInputOne('')
-    setInputTwo('')
+    setInputGameName('')
+    setInputShipMintAddress('')
+    setInputInvaderOneMintAddress('')
   };
 
   
@@ -97,13 +121,18 @@ function App() {
       <h1 style={{ margin: "6rem 0rem 1rem 0rem", color: 'white', fontFamily: 'Montserrat', fontWeight: 'bold' }}> REX</h1>
       <form style={{ border: '1px solid white', marginBottom: '5rem' }}>
         <div style={{ textAlign: "center" }}>
-          <InputOne type="text" placeholder='Game Name' value={inputOne} onBlur={(e) => e.target.placeholder = 'Game Name'} onFocus={(e) => e.target.placeholder = ''} onChange={e => setInputOne(e.target.value)} >
-          </InputOne>
+          <InputGameName type="text" placeholder='Game Name' value={inputGameName} onBlur={(e) => e.target.placeholder = 'Game Name'} onFocus={(e) => e.target.placeholder = ''} onChange={e => setInputGameName(e.target.value)} >
+          </InputGameName>
         </div>
 
         <div style={{ textAlign: "center" }}>
-          <InputTwo type="text" placeholder='Mint Address' value={inputTwo} onBlur={(e) => e.target.placeholder = 'Mint Address'} onInput={(e) => e.target.color = 'white'} onFocus={(e) => e.target.placeholder = ''} onChange={e => setInputTwo(e.target.value)} >
-          </InputTwo>
+          <InputShipMintAddress type="text" placeholder='Ship Mint Address' value={inputShipMintAddress} onBlur={(e) => e.target.placeholder = 'Ship Mint Address'} onInput={(e) => e.target.color = 'white'} onFocus={(e) => e.target.placeholder = ''} onChange={e => setInputShipMintAddress(e.target.value)} >
+          </InputShipMintAddress>
+        </div>
+
+        <div style={{ textAlign: "center" }}>
+          <InputInvaderOneMintAddress type="text" placeholder='Invader #1 Mint Address' value={inputInvaderOneMintAddress} onBlur={(e) => e.target.placeholder = 'Invader #1 Mint Address'} onInput={(e) => e.target.color = 'white'} onFocus={(e) => e.target.placeholder = ''} onChange={e => setInputInvaderOneMintAddress(e.target.value)} >
+          </InputInvaderOneMintAddress>
         </div>
 
         <div style={{ textAlign: "center", padding: "1rem" }}>
