@@ -98,23 +98,23 @@ const InputInvaderThreeMintAddress = styled.input`
   }   */
 `;
 
-const InputInvaderUfoMintAddress = styled.input`
-  min-width: 16rem;
-  font-size: 1rem;
-  padding: 0.6rem 1.5rem 0.6rem 1.5rem;
-  margin: 0.5rem 2rem 2rem 2rem;
-  background: none;
-  border: 1px solid white;
-  border-radius: none;
-  font-family: Montserrat;
-  color: white;
-  ::placeholder {
-    color: white;
-  }
-  /* &:focus {
-    outline: none;
-  }   */
-`;
+// const InputInvaderUfoMintAddress = styled.input`
+//   min-width: 16rem;
+//   font-size: 1rem;
+//   padding: 0.6rem 1.5rem 0.6rem 1.5rem;
+//   margin: 0.5rem 2rem 2rem 2rem;
+//   background: none;
+//   border: 1px solid white;
+//   border-radius: none;
+//   font-family: Montserrat;
+//   color: white;
+//   ::placeholder {
+//     color: white;
+//   }
+//   /* &:focus {
+//     outline: none;
+//   }   */
+// `;
 
 const ButtonTwo = styled.button`
   font-size: 1rem;
@@ -142,7 +142,7 @@ function App() {
 
   const [inputInvaderThreeMintAddress, setInputInvaderThreeMintAddress] = useState('');
 
-  const [inputInvaderUfoMintAddress, setInputInvaderUfoMintAddress] = useState('');
+  // const [inputInvaderUfoMintAddress, setInputInvaderUfoMintAddress] = useState('');
 
 
 
@@ -154,7 +154,7 @@ function App() {
 
   const invaderthreenftPic = GetNFTData(inputInvaderThreeMintAddress);
 
-  const invaderufonftPic = GetNFTData(inputInvaderUfoMintAddress);
+  // const invaderufonftPic = GetNFTData(inputInvaderUfoMintAddress);
 
 
 
@@ -167,7 +167,7 @@ function App() {
     })
 
 
-  }, [inputGameName, inputShipMintAddress, inputInvaderOneMintAddress, inputInvaderTwoMintAddress, inputInvaderThreeMintAddress, inputInvaderUfoMintAddress]);
+  }, [inputGameName, inputShipMintAddress, inputInvaderOneMintAddress, inputInvaderTwoMintAddress, inputInvaderThreeMintAddress]);
 
   const addTodo = (e) => {
     e.preventDefault();
@@ -177,12 +177,12 @@ function App() {
       invaderOneMintAddress: inputInvaderOneMintAddress,
       invaderTwoMintAddress: inputInvaderTwoMintAddress,
       invaderThreeMintAddress: inputInvaderThreeMintAddress,
-      invaderUfoMintAddress: inputInvaderUfoMintAddress,
+      // invaderUfoMintAddress: inputInvaderUfoMintAddress,
       shipNFTPic: shipnftPic,
       invaderOneNFTPic: invaderonenftPic,
       invaderTwoNFTPic: invadertwonftPic,
       invaderThreeNFTPic: invaderthreenftPic,
-      invaderFourNFTPic: invaderufonftPic,
+      // invaderUfoNFTPic: invaderufonftPic,
       timestamp: serverTimestamp()
     })
     setInputGameName('')
@@ -190,7 +190,7 @@ function App() {
     setInputInvaderOneMintAddress('')
     setInputInvaderTwoMintAddress('')
     setInputInvaderThreeMintAddress('')
-    setInputInvaderUfoMintAddress('')
+    // setInputInvaderUfoMintAddress('')
   };
 
   
@@ -223,10 +223,10 @@ function App() {
           </InputInvaderThreeMintAddress>
         </div>
 
-        <div style={{ textAlign: "center" }}>
+        {/* <div style={{ textAlign: "center" }}>
           <InputInvaderUfoMintAddress type="text" placeholder='UFO Mint Address' value={inputInvaderUfoMintAddress} onBlur={(e) => e.target.placeholder = 'UFO Mint Address'} onInput={(e) => e.target.color = 'white'} onFocus={(e) => e.target.placeholder = ''} onChange={e => setInputInvaderUfoMintAddress(e.target.value)} >
           </InputInvaderUfoMintAddress>
-        </div>
+        </div> */}
 
         <div style={{ textAlign: "center", paddingTop: "1rem", paddingBottom: "1rem" }}>
           <ButtonTwo onClick={addTodo}>Generate Game</ButtonTwo>

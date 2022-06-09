@@ -18,7 +18,7 @@ const Todo = ({ arr }) => {
         const invaderOneImageURL = arr.item.invaderOneNFTPic;
         const invaderTwoImageURL = arr.item.invaderTwoNFTPic;
         const invaderThreeImageURL = arr.item.invaderThreeNFTPic;
-        const invaderUfoImageURL = arr.item.invaderUfoNFTPic;
+        // const invaderUfoImageURL = arr.item.invaderUfoNFTPic;
 
 
         await updateDoc(taskDocRef, {
@@ -26,7 +26,7 @@ const Todo = ({ arr }) => {
           invaderOneImageURL: invaderOneImageURL,
           invaderTwoImageURL: invaderTwoImageURL,
           invaderThreeImageURL: invaderThreeImageURL,
-          invaderUfoImageURL: invaderUfoImageURL,
+          // invaderUfoImageURL: invaderUfoImageURL,
 
         });
         window.location.href = 'https://adrian-petrykiw.github.io/space_invaders_injectionv2/';
@@ -38,7 +38,7 @@ const Todo = ({ arr }) => {
           <Avatar alt="Error" style={{ marginTop: '1rem', }} src={arr.item.invaderOneNFTPic} />
           <Avatar alt="Error" style={{ marginTop: '1rem', }} src={arr.item.invaderTwoNFTPic} />
           <Avatar alt="Error" style={{ marginTop: '1rem', }} src={arr.item.invaderThreeNFTPic} />
-          <Avatar alt="Error" style={{ marginTop: '1rem', }} src={arr.item.invaderFourNFTPic} />
+          {/* <Avatar alt="Error" style={{ marginTop: '1rem', }} src={arr.item.invaderUfoNFTPic} /> */}
 
 
         </ListItemAvatar>
@@ -58,20 +58,20 @@ const Todo = ({ arr }) => {
               </div>
 
               <div style={{ marginTop: '2.25rem', }}>
-                Invader #1 Mint Address: {arr.item.invaderMintAddress}
+                Invader #1 Mint Address: {arr.item.invaderOneMintAddress}
               </div>
 
               <div style={{ marginTop: '2.25rem', }}>
-                Invader #2 Mint Address: {arr.item.invaderMintAddress}
+                Invader #2 Mint Address: {arr.item.invaderTwoMintAddress}
               </div>
 
               <div style={{ marginTop: '2.25rem', }}>
-                Invader #3 Mint Address: {arr.item.invaderMintAddress}
+                Invader #3 Mint Address: {arr.item.invaderThreeMintAddress}
               </div>
 
-              <div style={{ marginTop: '2.25rem', }}>
-                UFO Mint Address: {arr.item.invaderMintAddress}
-              </div>
+              {/* <div style={{ marginTop: '2.25rem', }}>
+                UFO Mint Address: {arr.item.invaderUfoMintAddress}
+              </div> */}
 
 
 
