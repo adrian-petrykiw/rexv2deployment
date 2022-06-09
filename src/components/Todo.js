@@ -15,52 +15,71 @@ const Todo = ({ arr }) => {
         e.preventDefault();
         const taskDocRef = doc(db, 'nftpic', 'currentnftpic');
         const shipImageUrl = arr.item.shipNFTPic;
-        const invaderImageURL = arr.item.invaderOneNFTPic;
+        const invaderOneImageURL = arr.item.invaderOneNFTPic;
+        const invaderTwoImageURL = arr.item.invaderTwoNFTPic;
+        const invaderThreeImageURL = arr.item.invaderThreeNFTPic;
+        const invaderUfoImageURL = arr.item.invaderUfoNFTPic;
+
 
         await updateDoc(taskDocRef, {
           shipImageUrl: shipImageUrl,
-          invaderImageURL: invaderImageURL,
+          invaderOneImageURL: invaderOneImageURL,
+          invaderTwoImageURL: invaderTwoImageURL,
+          invaderThreeImageURL: invaderThreeImageURL,
+          invaderUfoImageURL: invaderUfoImageURL,
+
         });
         window.location.href = 'https://adrian-petrykiw.github.io/space_invaders_injectionv2/';
-      }}>
-        <ListItemAvatar style={{ paddingLeft: 20, }}>
+      }}
+
+      style={{paddingBottom: '1.75rem', paddingTop: '1.5rem',}}>
+        <ListItemAvatar style={{ paddingLeft: '1.25rem', paddingTop: '4.25rem' }}>
           <Avatar alt="Error" src={arr.item.shipNFTPic} />
-          <Avatar alt="Error" style={{ marginTop: 20, }} src={arr.item.invaderOneNFTPic} />
+          <Avatar alt="Error" style={{ marginTop: '1rem', }} src={arr.item.invaderOneNFTPic} />
+          <Avatar alt="Error" style={{ marginTop: '1rem', }} src={arr.item.invaderTwoNFTPic} />
+          <Avatar alt="Error" style={{ marginTop: '1rem', }} src={arr.item.invaderThreeNFTPic} />
+          <Avatar alt="Error" style={{ marginTop: '1rem', }} src={arr.item.invaderFourNFTPic} />
+
+
         </ListItemAvatar>
 
 
         <ListItemText
-          style={{ paddingLeft: 20, }}
+        style={{ paddingLeft: '1.25rem',}}
+  
           primary={
-            <Typography variant="h6" style={{ color: "white" }}>{arr.item.gameName}</Typography>
+            <Typography variant="h5" style={{ fontFamily: 'Montserrat', fontWeight: 'bolder', color: "white" }} >{arr.item.gameName}</Typography>
           }
           secondary={
 
-            <Typography style={{ color: "white" }}>
-            
-                 Ship Mint Address: {arr.item.shipMintAddress}
-                 <div>
-                 Invader Mint Address: {arr.item.invaderMintAddress}
-                 </div>
-                
-           
-              
+            <Typography style={{ color: "white", fontFamily: 'Montserrat', fontSize: '14px'  }}>
+              <div style={{ marginTop: '2.5rem', }}>
+                Ship Mint Address: {arr.item.shipMintAddress}
+              </div>
+
+              <div style={{ marginTop: '2.25rem', }}>
+                Invader #1 Mint Address: {arr.item.invaderMintAddress}
+              </div>
+
+              <div style={{ marginTop: '2.25rem', }}>
+                Invader #2 Mint Address: {arr.item.invaderMintAddress}
+              </div>
+
+              <div style={{ marginTop: '2.25rem', }}>
+                Invader #3 Mint Address: {arr.item.invaderMintAddress}
+              </div>
+
+              <div style={{ marginTop: '2.25rem', }}>
+                UFO Mint Address: {arr.item.invaderMintAddress}
+              </div>
+
+
+
             </Typography>
 
           }
         />
 
-        {/* <ListItemText
-          style={{ paddingLeft: 20, }}
-          secondary={
-            <Typography style={{ color: "white" }}>
-              <h6>
-                "Invader Mint Address"
-              </h6>
-              {arr.item.invaderMintAddress}
-            </Typography>
-          }
-        /> */}
       </ListItem>
       {/* <DeleteIcon fontSize="large" style={{ opacity: 1, paddingRight: 20, }} onClick={() => { deleteDoc(doc(db, 'todos', arr.id)) }} /> */}
 
