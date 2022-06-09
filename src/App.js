@@ -196,7 +196,7 @@ function App() {
   
   return (
     <div className="App">
-      <h1 style={{ margin: "2rem 0rem 1rem 0rem", color: 'white', fontSize: '36pt',fontFamily: 'Montserrat', fontWeight: 'bolder' }}> REX</h1>
+      <h1 style={{ margin: "3rem 0rem 1rem 0rem", color: 'white', fontSize: '36pt',fontFamily: 'Montserrat', fontWeight: 'bolder' }}> REX</h1>
       <form style={{ border: '1px solid white', marginBottom: '5rem' }}>
         <div style={{ textAlign: "center" }}>
           <InputGameName type="text" placeholder='Game Name' value={inputGameName} onBlur={(e) => e.target.placeholder = 'Game Name'} onFocus={(e) => e.target.placeholder = ''} onChange={e => setInputGameName(e.target.value)} >
