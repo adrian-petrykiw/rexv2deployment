@@ -209,7 +209,6 @@ function App() {
     // setInputInvaderUfoMintAddress('')
   };
 
-  const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)   
 
 
   return (
