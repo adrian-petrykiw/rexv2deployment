@@ -249,7 +249,7 @@ function App() {
           <ButtonTwo onClick={addTodo}>Generate Game</ButtonTwo>
         </div>
       </form>
-      <HowToText href='#howto'> HOW TO INJECT?</HowToText>
+      <HowToText href='#howto'> HOW TO MAKE YOUR GAME?</HowToText>
 
       {/* <div style={{width: '100%', background: 'white', border: '1px solid white'}}>
       </div> */}
@@ -264,7 +264,7 @@ function App() {
 
 
       <div >
-        <h1 style={{ margin: "5rem 0rem 2rem 0rem", color: 'white', fontSize: '24pt', fontFamily: 'Montserrat', fontWeight: 'bolder' }}> HOW DO YOU INJECT AN NFT?</h1>
+        <h1 style={{ margin: "5rem 0rem 2rem 0rem", color: 'white', fontSize: '24pt', fontFamily: 'Montserrat', fontWeight: 'bolder' }}> HOW TO MAKE YOUR GAME?</h1>
       </div>
 
       <HowTo />

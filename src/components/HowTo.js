@@ -19,7 +19,7 @@ const HowTo = ({ arr }) => {
 
             <div className="how__to">
                     <p style={{ padding: '1.25rem 0rem 0rem 2rem', margin: '0rem 0rem 0rem 0rem', color: 'blue', fontSize: '16pt', fontFamily: 'Montserrat', fontWeight: 'bolder' }}> STEP 3</p>
-                    <p style={{ padding: '0.5rem 0rem 1.5rem 2rem', margin: '0rem 0rem 0rem 0rem', color: 'white', fontSize: '12pt', fontFamily: 'Montserrat', fontWeight: 'lighter' }}> Click the "CUSTOMIZE" button to customize and deploy your game"</p>
+                    <p style={{ padding: '0.5rem 0rem 1.5rem 2rem', margin: '0rem 0rem 0rem 0rem', color: 'white', fontSize: '12pt', fontFamily: 'Montserrat', fontWeight: 'lighter' }}> Click the "CUSTOMIZE" button to customize and deploy your game</p>
             </div>
 
             <div className="how__to">
