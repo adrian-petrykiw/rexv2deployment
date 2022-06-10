@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Todo from './components/Todo';
+import HowTo from './components/HowTo';
 import { db } from './firebase.js';
 import { collection, query, orderBy, onSnapshot, addDoc, serverTimestamp } from 'firebase/firestore';
 import './App.css';
@@ -10,6 +11,20 @@ import GetNFTData from './components/GetNFTData';
 
 
 const q = query(collection(db, 'todos'), orderBy('timestamp', 'desc'));
+
+const HowToText = styled.a`
+  font-size: 12pt;
+  font-weight: lighter;
+  padding: 1.5rem 0rem 0rem 0rem;
+  margin: 0rem 0rem 5rem 0rem;
+  background: none;
+  color: white;
+  :hover {
+    font-weight: bolder;
+    cursor: pointer;
+  }
+  font-family: Montserrat;
+`;
 
 const InputGameName = styled.input`
   min-width: 16rem;
@@ -25,6 +40,7 @@ const InputGameName = styled.input`
   }
   font-family: Montserrat;
 `;
+
 
 const InputShipMintAddress = styled.input`
   min-width: 16rem;
@@ -84,7 +100,7 @@ const InputInvaderThreeMintAddress = styled.input`
   min-width: 16rem;
   font-size: 1rem;
   padding: 0.6rem 1.5rem 0.6rem 1.5rem;
-  margin: 0.5rem 2rem 0.5rem 2rem;
+  margin: 0.5rem 2rem 1rem 2rem;
   background: none;
   border: 1px solid white;
   border-radius: none;
@@ -120,7 +136,7 @@ const ButtonTwo = styled.button`
   font-size: 1rem;
   min-width: 19rem;
   padding: 0.6rem 1.5rem 0.6rem 1.5rem;
-  margin: 0rem 0rem 1.5rem 0rem;
+  margin: 0.5rem 0rem 1.5rem 0rem;
   color: black;
   font-weight: bold;
   background: white;
@@ -193,17 +209,19 @@ function App() {
     // setInputInvaderUfoMintAddress('')
   };
 
-  
+  const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)   
+
+
   return (
     <div className="App">
-      <h1 style={{ margin: "3rem 0rem 1rem 0rem", color: 'white', fontSize: '36pt',fontFamily: 'Montserrat', fontWeight: 'bolder' }}> REX</h1>
-      <form style={{ border: '1px solid white', marginBottom: '5rem' }}>
+      <h1 style={{ margin: "3rem 0rem 1rem 0rem", color: 'white', fontSize: '36pt', fontFamily: 'Montserrat', fontWeight: 'bolder' }}> REX</h1>
+      <form style={{ border: '1px solid white' }}>
         <div style={{ textAlign: "center" }}>
           <InputGameName type="text" placeholder='Game Name' value={inputGameName} onBlur={(e) => e.target.placeholder = 'Game Name'} onFocus={(e) => e.target.placeholder = ''} onChange={e => setInputGameName(e.target.value)} >
           </InputGameName>
         </div>
 
-        <div style={{ textAlign: "center"}}>
+        <div style={{ textAlign: "center" }}>
           <InputShipMintAddress type="text" placeholder='Ship Mint Address' value={inputShipMintAddress} onBlur={(e) => e.target.placeholder = 'Ship Mint Address'} onInput={(e) => e.target.color = 'white'} onFocus={(e) => e.target.placeholder = ''} onChange={e => setInputShipMintAddress(e.target.value)} >
           </InputShipMintAddress>
         </div>
@@ -232,18 +250,28 @@ function App() {
           <ButtonTwo onClick={addTodo}>Generate Game</ButtonTwo>
         </div>
       </form>
-
+      <HowToText href='#howto'> HOW TO INJECT?</HowToText>
 
       {/* <div style={{width: '100%', background: 'white', border: '1px solid white'}}>
       </div> */}
 
-      <div style={{ margin: "3rem 0rem 1rem 0rem" }}>
-        <h2 style={{margin: "0rem 0rem 0rem 0rem", color: 'white', fontSize: '24pt', fontFamily: 'Montserrat', fontWeight: 'bolder'}}> GAMES</h2>
+      <div style={{ margin: "3rem 0rem 2rem 0rem" }}>
+        <h2 style={{ margin: "0rem 0rem 0rem 0rem", color: 'white', fontSize: '24pt', fontFamily: 'Montserrat', fontWeight: 'bolder' }}> GAMES</h2>
       </div>
- 
-      <ul>
-        {todos.map(item => <Todo key={item.id} arr={item}/>)}
-      </ul>
+
+      <div>
+        {todos.map(item => <Todo key={item.id} arr={item} />)}
+      </div>
+
+
+      <div >
+        <h1 style={{ margin: "5rem 0rem 2rem 0rem", color: 'white', fontSize: '24pt', fontFamily: 'Montserrat', fontWeight: 'bolder' }}> HOW DO YOU INJECT AN NFT?</h1>
+      </div>
+
+      <HowTo />
+
+      
+
     </div>
   );
 }
