@@ -13,7 +13,7 @@ import GetNFTData from './components/GetNFTData';
 const q = query(collection(db, 'todos'), orderBy('timestamp', 'desc'));
 
 const HowToText = styled.a`
-  font-size: 12pt;
+  font-size: 14pt;
   font-weight: lighter;
   padding: 1.5rem 0rem 0rem 0rem;
   margin: 0rem 0rem 5rem 0rem;
